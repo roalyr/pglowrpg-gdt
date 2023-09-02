@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://crjn0w4751g5"]
+[gd_scene load_steps=11 format=3 uid="uid://crjn0w4751g5"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_ka1y2"]
 [ext_resource type="Script" path="res://Scripts/UI/Window_splash.gd" id="2_2dste"]
@@ -15,6 +15,74 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="GDScript" id="GDScript_gi22u"]
+resource_name = "Text_frame"
+script/source = "extends Panel
+
+
+# TEXT FRAME
+func _ready():
+	Signals.viewport_portrait.connect(is_viewport_portrait)
+	
+func is_viewport_portrait(flag):
+	if !flag:
+		# Landscape
+		self.anchor_left = 0.0
+		self.anchor_top = 0.0
+		self.anchor_right = 0.5
+		self.anchor_bottom = 1.0
+		
+		self.offset_left = 60
+		self.offset_top = 60
+		self.offset_right = 0
+		self.offset_bottom = -140
+	else:
+		# Portrait
+		self.anchor_left = 0.0
+		self.anchor_top = 0.0
+		self.anchor_right = 1.0
+		self.anchor_bottom = 0.463
+		
+		self.offset_left = 60
+		self.offset_top = 60
+		self.offset_right = -60
+		self.offset_bottom = 0
+"
+
+[sub_resource type="GDScript" id="GDScript_naswk"]
+resource_name = "Image_frame"
+script/source = "extends Panel
+
+
+# IMAGE FRAME
+func _ready():
+	Signals.viewport_portrait.connect(is_viewport_portrait)
+	
+func is_viewport_portrait(flag):
+	if !flag:
+		# Landscape
+		self.anchor_left = 0.5
+		self.anchor_top = 0.0
+		self.anchor_right = 1.0
+		self.anchor_bottom = 1.0
+		
+		self.offset_left = 0
+		self.offset_top = 60
+		self.offset_right = -60
+		self.offset_bottom = -140
+	else:
+		# Portrait
+		self.anchor_left = 0.0
+		self.anchor_top = 0.463
+		self.anchor_right = 1.0
+		self.anchor_bottom = 1.0
+		
+		self.offset_left = 60
+		self.offset_top = 0
+		self.offset_right = -60
+		self.offset_bottom = -140
+"
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -26,6 +94,7 @@ script = ExtResource("1_ka1y2")
 metadata/_edit_horizontal_guides_ = [0.0, 1080.0]
 
 [node name="Window_splash" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,6 +204,26 @@ offset_bottom = 60.0
 theme = ExtResource("2_5i716")
 text = "Play"
 
+[node name="Button_ui_scale" type="OptionButton" parent="Window_menu/Menu_button_bar"]
+layout_mode = 1
+offset_left = 220.0
+offset_right = 320.0
+offset_bottom = 60.0
+theme = ExtResource("2_5i716")
+alignment = 1
+item_count = 5
+selected = 0
+popup/item_0/text = "1.0"
+popup/item_0/id = 0
+popup/item_1/text = "1.5"
+popup/item_1/id = 1
+popup/item_2/text = "2.0"
+popup/item_2/id = 2
+popup/item_3/text = "2.5"
+popup/item_3/id = 3
+popup/item_4/text = "3.0"
+popup/item_4/id = 4
+
 [node name="Button_quit" type="Button" parent="Window_menu/Menu_button_bar"]
 layout_mode = 1
 anchors_preset = 1
@@ -148,6 +237,7 @@ text = "Quit
 "
 
 [node name="Window_worldgen" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,13 +270,25 @@ offset_bottom = 60.0
 theme = ExtResource("2_5i716")
 text = "Start"
 
-[node name="Button_preset" type="Button" parent="Window_worldgen/Worldgen_button_bar"]
+[node name="Button_preset" type="OptionButton" parent="Window_worldgen/Worldgen_button_bar"]
 layout_mode = 1
 offset_left = 110.0
 offset_right = 210.0
 offset_bottom = 60.0
 theme = ExtResource("2_5i716")
-text = "Preset"
+alignment = 1
+item_count = 5
+selected = 1
+popup/item_0/text = "128"
+popup/item_0/id = 0
+popup/item_1/text = "256"
+popup/item_1/id = 1
+popup/item_2/text = "512"
+popup/item_2/id = 2
+popup/item_3/text = "1024"
+popup/item_3/id = 3
+popup/item_4/text = "2048"
+popup/item_4/id = 4
 
 [node name="Button_back" type="Button" parent="Window_worldgen/Worldgen_button_bar"]
 layout_mode = 1
@@ -202,16 +304,16 @@ text = "Back
 
 [node name="Text_frame" type="Panel" parent="Window_worldgen"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 60.0
 offset_top = 60.0
-offset_right = -60.0
 offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
+script = SubResource("GDScript_gi22u")
 
 [node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Text_frame"]
 layout_mode = 1
@@ -229,17 +331,105 @@ theme = ExtResource("2_5i716")
 [node name="Text_output" type="Label" parent="Window_worldgen/Text_frame/Scroll_container"]
 layout_mode = 2
 theme = ExtResource("2_5i716")
-text = "Test output
-Test output
-Test output
-Test output
-Test output
-"
+
+[node name="Text_frame2" type="Panel" parent="Window_worldgen"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.463
+offset_left = 60.0
+offset_top = 60.0
+offset_right = -60.0
+offset_bottom = -0.0400391
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
+
+[node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Text_frame2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5i716")
+
+[node name="Text_output" type="Label" parent="Window_worldgen/Text_frame2/Scroll_container"]
+layout_mode = 2
+theme = ExtResource("2_5i716")
+
+[node name="Image_frame" type="Panel" parent="Window_worldgen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_right = -60.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
+script = SubResource("GDScript_naswk")
+
+[node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Image_frame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5i716")
+
+[node name="Image_output" type="TextureRect" parent="Window_worldgen/Image_frame/Scroll_container"]
+layout_mode = 2
+
+[node name="Image_frame2" type="Panel" parent="Window_worldgen"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.463
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -0.0400391
+offset_right = -60.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
+
+[node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Image_frame2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5i716")
+
+[node name="Image_output" type="TextureRect" parent="Window_worldgen/Image_frame2/Scroll_container"]
+layout_mode = 2
 
 [node name="Worldgen" type="Node" parent="Window_worldgen"]
 script = ExtResource("7_x76hx")
 
 [connection signal="pressed" from="Window_menu/Menu_button_bar/Button_worldgen" to="Window_menu/Menu_button_bar" method="_on_button_worldgen_pressed"]
+[connection signal="item_selected" from="Window_menu/Menu_button_bar/Button_ui_scale" to="Window_menu/Menu_button_bar" method="_on_button_ui_scale_item_selected"]
 [connection signal="pressed" from="Window_menu/Menu_button_bar/Button_quit" to="Window_menu/Menu_button_bar" method="_on_button_quit_pressed"]
 [connection signal="pressed" from="Window_worldgen/Worldgen_button_bar/Button_start" to="Window_worldgen/Worldgen_button_bar" method="_on_button_start_pressed"]
+[connection signal="item_selected" from="Window_worldgen/Worldgen_button_bar/Button_preset" to="Window_worldgen/Worldgen_button_bar" method="_on_button_preset_item_selected"]
 [connection signal="pressed" from="Window_worldgen/Worldgen_button_bar/Button_back" to="Window_worldgen/Worldgen_button_bar" method="_on_button_back_pressed"]

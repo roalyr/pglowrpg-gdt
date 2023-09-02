@@ -1,9 +1,46 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cvnn62rtwnmxn"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cvnn62rtwnmxn"]
 
 [ext_resource type="FontFile" uid="uid://clgguyckehh61" path="res://Assets/Fonts/Roboto_condensed/RobotoCondensed-Regular.ttf" id="1_1ny7f"]
 [ext_resource type="FontFile" uid="uid://df825t86pk62n" path="res://Assets/Fonts/Roboto_condensed/RobotoCondensed-Bold.ttf" id="1_s60ht"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsc0r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nse4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="ImageTexture" id="ImageTexture_elu7g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piy7c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qbfl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kyot"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwl8h"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 2
 border_width_top = 2
@@ -18,5 +55,18 @@ Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = SubResource("StyleBoxFlat_wsc0r")
 Button/styles/pressed = null
+ItemList/styles/panel = SubResource("StyleBoxFlat_3nse4")
 Label/font_sizes/font_size = 22
 Label/fonts/font = ExtResource("1_s60ht")
+OptionButton/constants/arrow_margin = 0
+OptionButton/fonts/font = ExtResource("1_1ny7f")
+OptionButton/icons/arrow = SubResource("ImageTexture_elu7g")
+OptionButton/styles/focus = null
+OptionButton/styles/hover = SubResource("StyleBoxFlat_piy7c")
+OptionButton/styles/hover_mirrored = null
+OptionButton/styles/normal = SubResource("StyleBoxFlat_3qbfl")
+OptionButton/styles/normal_mirrored = null
+PopupMenu/font_sizes/font_size = 22
+PopupMenu/fonts/font = ExtResource("1_1ny7f")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_5kyot")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_qwl8h")

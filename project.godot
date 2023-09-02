@@ -18,7 +18,19 @@ config/icon="res://Assets/Icon_splash/Icon.svg"
 
 [autoload]
 
+UIPopupPanic="*res://Scenes/Autoload/Autoload_UIPopupPanic.tscn"
 Paths="*res://Scripts/Autoload/Autoload_paths.gd"
+Signals="*res://Scripts/Autoload/Autoload_signals.gd"
+Constants="*res://Scripts/Autoload/Autoload_constants.gd"
+GameState="*res://Scripts/Autoload/Autoload_game_state.gd"
+Prng="*res://Scripts/Autoload/Autoload_prng.gd"
+Units="*res://Scripts/Autoload/Autoload_units.gd"
+ArrayOps="*res://Scripts/Autoload/Autoload_array_ops.gd"
+WorldInit="*res://Scripts/Autoload/Autoload_world_init.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=0
 
 [display]
 
