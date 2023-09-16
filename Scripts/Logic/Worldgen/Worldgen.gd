@@ -8,6 +8,8 @@ func start():
 	var time1 = Time.get_ticks_msec()
 	Paths.window_worldgen_text.text = ""
 	Paths.window_worldgen_text.text += "Generating diamond-square noise...\n"
+	
+	# Topology generation.
 	var array = ArrayOps.diamond_square_get(map_size, 1.0, 0.0, 0.0)
 	
 	Paths.window_worldgen_text.text += "Outputting the image texture...\n"

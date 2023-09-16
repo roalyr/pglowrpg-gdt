@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://crjn0w4751g5"]
+[gd_scene load_steps=10 format=3 uid="uid://crjn0w4751g5"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_ka1y2"]
 [ext_resource type="Script" path="res://Scripts/UI/Window_splash.gd" id="2_2dste"]
@@ -7,13 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/UI/Menu_button_bar.gd" id="5_5ma3c"]
 [ext_resource type="Script" path="res://Scripts/UI/Worldgen_button_bar.gd" id="6_yr6j7"]
 [ext_resource type="Script" path="res://Scripts/Logic/Worldgen/Worldgen.gd" id="7_x76hx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhxd2"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
 
 [sub_resource type="GDScript" id="GDScript_gi22u"]
 resource_name = "Text_frame"
@@ -91,23 +84,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ka1y2")
-metadata/_edit_horizontal_guides_ = [0.0, 1080.0]
+metadata/_edit_horizontal_guides_ = [1920.0]
+metadata/_edit_lock_ = true
 
 [node name="Window_splash" type="Control" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_2dste")
+metadata/_edit_lock_ = true
 
 [node name="Background_holder" parent="Window_splash" instance=ExtResource("2_eb4lb")]
 layout_mode = 1
@@ -128,17 +117,21 @@ grow_vertical = 2
 theme = ExtResource("2_5i716")
 theme_override_font_sizes/font_size = 50
 text = "pGLOWrpg"
+metadata/_edit_lock_ = true
 
 [node name="Window_menu" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
+visible = false
+layout_mode = 2
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Background_holder" parent="Window_menu" instance=ExtResource("2_eb4lb")]
 layout_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Window_menu"]
 layout_mode = 1
@@ -156,6 +149,7 @@ grow_vertical = 2
 theme = ExtResource("2_5i716")
 theme_override_font_sizes/font_size = 50
 text = "pGLOWrpg"
+metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="Window_menu"]
 layout_mode = 1
@@ -173,6 +167,7 @@ grow_vertical = 2
 theme = ExtResource("2_5i716")
 theme_override_font_sizes/font_size = 25
 text = "Godot edition"
+metadata/_edit_lock_ = true
 
 [node name="Menu_button_bar" type="Control" parent="Window_menu"]
 layout_mode = 1
@@ -180,31 +175,47 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = -118.0
-offset_right = -62.0
-offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_5ma3c")
-metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Button_worldgen" type="Button" parent="Window_menu/Menu_button_bar"]
 layout_mode = 1
-offset_right = 100.0
-offset_bottom = 60.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("2_5i716")
 text = "Worldgen"
+metadata/_edit_lock_ = true
 
 [node name="Button_play" type="Button" parent="Window_menu/Menu_button_bar"]
 layout_mode = 1
-offset_left = 110.0
-offset_right = 210.0
-offset_bottom = 60.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -120.0
+offset_right = -130.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("2_5i716")
 text = "Play"
+metadata/_edit_lock_ = true
 
 [node name="Button_ui_scale" type="OptionButton" parent="Window_menu/Menu_button_bar"]
+visible = false
 layout_mode = 1
 offset_left = 220.0
 offset_right = 320.0
@@ -223,30 +234,38 @@ popup/item_3/text = "2.5"
 popup/item_3/id = 3
 popup/item_4/text = "3.0"
 popup/item_4/id = 4
+metadata/_edit_lock_ = true
 
 [node name="Button_quit" type="Button" parent="Window_menu/Menu_button_bar"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -100.0
-offset_bottom = 60.0
-grow_horizontal = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = -120.0
+offset_right = 290.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("2_5i716")
 text = "Quit
 "
+metadata/_edit_lock_ = true
 
 [node name="Window_worldgen" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
+anchors_preset = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Background_holder" parent="Window_worldgen" instance=ExtResource("2_eb4lb")]
 layout_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Worldgen_button_bar" type="Control" parent="Window_worldgen"]
 layout_mode = 1
@@ -254,27 +273,38 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = -118.0
-offset_right = -62.0
-offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("6_yr6j7")
-metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Button_start" type="Button" parent="Window_worldgen/Worldgen_button_bar"]
 layout_mode = 1
-offset_right = 100.0
-offset_bottom = 60.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -120.0
+offset_right = 80.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("2_5i716")
 text = "Start"
+metadata/_edit_lock_ = true
 
 [node name="Button_preset" type="OptionButton" parent="Window_worldgen/Worldgen_button_bar"]
 layout_mode = 1
-offset_left = 110.0
-offset_right = 210.0
-offset_bottom = 60.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = -120.0
+offset_right = -90.0
+offset_bottom = -40.0
+grow_horizontal = 2
 theme = ExtResource("2_5i716")
 alignment = 1
 item_count = 5
@@ -289,18 +319,22 @@ popup/item_3/text = "1024"
 popup/item_3/id = 3
 popup/item_4/text = "2048"
 popup/item_4/id = 4
+metadata/_edit_lock_ = true
 
 [node name="Button_back" type="Button" parent="Window_worldgen/Worldgen_button_bar"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -100.0
-offset_bottom = 60.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 90.0
+offset_top = -120.0
+offset_right = 220.0
+offset_bottom = -40.0
+grow_horizontal = 2
 theme = ExtResource("2_5i716")
 text = "Back
 "
+metadata/_edit_lock_ = true
 
 [node name="Text_frame" type="Panel" parent="Window_worldgen"]
 layout_mode = 1
@@ -312,8 +346,9 @@ offset_top = 60.0
 offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
+theme = ExtResource("2_5i716")
 script = SubResource("GDScript_gi22u")
+metadata/_edit_lock_ = true
 
 [node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Text_frame"]
 layout_mode = 1
@@ -327,41 +362,12 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5i716")
+metadata/_edit_lock_ = true
 
 [node name="Text_output" type="Label" parent="Window_worldgen/Text_frame/Scroll_container"]
 layout_mode = 2
 theme = ExtResource("2_5i716")
-
-[node name="Text_frame2" type="Panel" parent="Window_worldgen"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.463
-offset_left = 60.0
-offset_top = 60.0
-offset_right = -60.0
-offset_bottom = -0.0400391
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
-
-[node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Text_frame2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_5i716")
-
-[node name="Text_output" type="Label" parent="Window_worldgen/Text_frame2/Scroll_container"]
-layout_mode = 2
-theme = ExtResource("2_5i716")
+metadata/_edit_lock_ = true
 
 [node name="Image_frame" type="Panel" parent="Window_worldgen"]
 layout_mode = 1
@@ -374,8 +380,9 @@ offset_right = -60.0
 offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
+theme = ExtResource("2_5i716")
 script = SubResource("GDScript_naswk")
+metadata/_edit_lock_ = true
 
 [node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Image_frame"]
 layout_mode = 1
@@ -389,40 +396,11 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5i716")
+metadata/_edit_lock_ = true
 
 [node name="Image_output" type="TextureRect" parent="Window_worldgen/Image_frame/Scroll_container"]
 layout_mode = 2
-
-[node name="Image_frame2" type="Panel" parent="Window_worldgen"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.463
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = -0.0400391
-offset_right = -60.0
-offset_bottom = -140.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nhxd2")
-
-[node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Image_frame2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_5i716")
-
-[node name="Image_output" type="TextureRect" parent="Window_worldgen/Image_frame2/Scroll_container"]
-layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="Worldgen" type="Node" parent="Window_worldgen"]
 script = ExtResource("7_x76hx")

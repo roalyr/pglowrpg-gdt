@@ -1,4 +1,14 @@
-[gd_scene format=3 uid="uid://cy38flw5v22vc"]
+[gd_scene load_steps=3 format=3 uid="uid://cy38flw5v22vc"]
+
+[ext_resource type="Theme" uid="uid://cvnn62rtwnmxn" path="res://Assets/Themes/Main_theme.tres" id="1_pfxhd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mhlk"]
+bg_color = Color(0.219608, 0.2, 0.164706, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.666667, 0.509804, 0.352941, 1)
 
 [node name="Background_holder" type="Control"]
 layout_mode = 3
@@ -8,15 +18,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = -40.0
-offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.580392, 0.254902, 0.454902, 1)
+theme = ExtResource("1_pfxhd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3mhlk")
+metadata/_edit_lock_ = true
