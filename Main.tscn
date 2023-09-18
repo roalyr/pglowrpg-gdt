@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crjn0w4751g5"]
+[gd_scene load_steps=9 format=3 uid="uid://crjn0w4751g5"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_ka1y2"]
 [ext_resource type="Script" path="res://Scripts/UI/Window_splash.gd" id="2_2dste"]
@@ -6,75 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cy38flw5v22vc" path="res://Scenes/UI/Background.tscn" id="2_eb4lb"]
 [ext_resource type="Script" path="res://Scripts/UI/Menu_button_bar.gd" id="5_5ma3c"]
 [ext_resource type="Script" path="res://Scripts/UI/Worldgen_button_bar.gd" id="6_yr6j7"]
+[ext_resource type="Script" path="res://Scripts/UI/World_grid.gd" id="7_avwq7"]
 [ext_resource type="Script" path="res://Scripts/Logic/Worldgen/Worldgen.gd" id="7_x76hx"]
-
-[sub_resource type="GDScript" id="GDScript_gi22u"]
-resource_name = "Text_frame"
-script/source = "extends Panel
-
-
-# TEXT FRAME
-func _ready():
-	Signals.viewport_portrait.connect(is_viewport_portrait)
-	
-func is_viewport_portrait(flag):
-	if !flag:
-		# Landscape
-		self.anchor_left = 0.0
-		self.anchor_top = 0.0
-		self.anchor_right = 0.5
-		self.anchor_bottom = 1.0
-		
-		self.offset_left = 60
-		self.offset_top = 60
-		self.offset_right = 0
-		self.offset_bottom = -140
-	else:
-		# Portrait
-		self.anchor_left = 0.0
-		self.anchor_top = 0.0
-		self.anchor_right = 1.0
-		self.anchor_bottom = 0.463
-		
-		self.offset_left = 60
-		self.offset_top = 60
-		self.offset_right = -60
-		self.offset_bottom = 0
-"
-
-[sub_resource type="GDScript" id="GDScript_naswk"]
-resource_name = "Image_frame"
-script/source = "extends Panel
-
-
-# IMAGE FRAME
-func _ready():
-	Signals.viewport_portrait.connect(is_viewport_portrait)
-	
-func is_viewport_portrait(flag):
-	if !flag:
-		# Landscape
-		self.anchor_left = 0.5
-		self.anchor_top = 0.0
-		self.anchor_right = 1.0
-		self.anchor_bottom = 1.0
-		
-		self.offset_left = 0
-		self.offset_top = 60
-		self.offset_right = -60
-		self.offset_bottom = -140
-	else:
-		# Portrait
-		self.anchor_left = 0.0
-		self.anchor_top = 0.463
-		self.anchor_right = 1.0
-		self.anchor_bottom = 1.0
-		
-		self.offset_left = 60
-		self.offset_top = 0
-		self.offset_right = -60
-		self.offset_bottom = -140
-"
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -88,7 +21,6 @@ metadata/_edit_horizontal_guides_ = [1920.0]
 metadata/_edit_lock_ = true
 
 [node name="Window_splash" type="Control" parent="."]
-visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 1.0
@@ -120,7 +52,6 @@ text = "pGLOWrpg"
 metadata/_edit_lock_ = true
 
 [node name="Window_menu" type="Control" parent="."]
-visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 1.0
@@ -140,14 +71,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -31.5
-offset_right = 105.0
-offset_bottom = 31.5
+offset_left = -165.5
+offset_top = -100.0
+offset_right = 165.5
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5i716")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 80
 text = "pGLOWrpg"
 metadata/_edit_lock_ = true
 
@@ -165,7 +96,6 @@ offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5i716")
-theme_override_font_sizes/font_size = 25
 text = "Godot edition"
 metadata/_edit_lock_ = true
 
@@ -255,6 +185,7 @@ text = "Quit
 metadata/_edit_lock_ = true
 
 [node name="Window_worldgen" type="Control" parent="."]
+visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 1.0
@@ -339,15 +270,15 @@ metadata/_edit_lock_ = true
 [node name="Text_frame" type="Panel" parent="Window_worldgen"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = 60.0
-offset_bottom = -140.0
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5i716")
-script = SubResource("GDScript_gi22u")
 metadata/_edit_lock_ = true
 
 [node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Text_frame"]
@@ -370,6 +301,7 @@ theme = ExtResource("2_5i716")
 metadata/_edit_lock_ = true
 
 [node name="Image_frame" type="Panel" parent="Window_worldgen"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -381,7 +313,6 @@ offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5i716")
-script = SubResource("GDScript_naswk")
 metadata/_edit_lock_ = true
 
 [node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/Image_frame"]
@@ -400,6 +331,39 @@ metadata/_edit_lock_ = true
 
 [node name="Image_output" type="TextureRect" parent="Window_worldgen/Image_frame/Scroll_container"]
 layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="World_frame" type="Panel" parent="Window_worldgen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_right = -40.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5i716")
+metadata/_edit_lock_ = true
+
+[node name="Scroll_container" type="ScrollContainer" parent="Window_worldgen/World_frame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_5i716")
+metadata/_edit_lock_ = true
+
+[node name="World_grid" type="GridContainer" parent="Window_worldgen/World_frame/Scroll_container"]
+layout_mode = 2
+script = ExtResource("7_avwq7")
 metadata/_edit_lock_ = true
 
 [node name="Worldgen" type="Node" parent="Window_worldgen"]

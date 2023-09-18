@@ -2,6 +2,7 @@ extends Node
 
 # Default.
 var map_size = 256
+var array
 
 func start():
 	# Start time measurement.
@@ -10,7 +11,10 @@ func start():
 	Paths.window_worldgen_text.text += "Generating diamond-square noise...\n"
 	
 	# Topology generation.
-	var array = ArrayOps.diamond_square_get(map_size, 1.0, 0.0, 0.0)
+	array = ArrayOps.diamond_square_get(map_size, 1.0, 0.0, 0.0)
+	
+	# Render output.
+	Paths.world_grid.render()
 	
 	Paths.window_worldgen_text.text += "Outputting the image texture...\n"
 	var image = Image.create_from_data(map_size, map_size, false, Image.FORMAT_L8, array)

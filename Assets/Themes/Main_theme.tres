@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=21 format=3 uid="uid://cvnn62rtwnmxn"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://cvnn62rtwnmxn"]
 
 [ext_resource type="FontFile" uid="uid://clgguyckehh61" path="res://Assets/Fonts/Roboto_condensed/RobotoCondensed-Regular.ttf" id="1_1ny7f"]
 
@@ -20,7 +20,7 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.458824, 0.34902, 0.239216, 1)
+border_color = Color(0.901961, 0.682353, 0.466667, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
@@ -61,6 +61,42 @@ corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32yeo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.666667, 0.509804, 0.352941, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32x01"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.666667, 0.509804, 0.352941, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3rg3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.666667, 0.509804, 0.352941, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nse4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -201,6 +237,42 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcacn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.666667, 0.509804, 0.352941, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un12k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.666667, 0.509804, 0.352941, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgvtv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.666667, 0.509804, 0.352941, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [resource]
 Button/colors/font_color = Color(0.666667, 0.509804, 0.352941, 1)
 Button/colors/font_focus_color = Color(0.666667, 0.509804, 0.352941, 1)
@@ -212,6 +284,9 @@ Button/styles/focus = SubResource("StyleBoxFlat_gqta3")
 Button/styles/hover = SubResource("StyleBoxFlat_4yh2d")
 Button/styles/normal = SubResource("StyleBoxFlat_nmnlo")
 Button/styles/pressed = SubResource("StyleBoxFlat_m5r86")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_32yeo")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_32x01")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_g3rg3")
 ItemList/styles/panel = SubResource("StyleBoxFlat_3nse4")
 Label/colors/font_color = Color(0.666667, 0.509804, 0.352941, 1)
 Label/font_sizes/font_size = 50
@@ -236,3 +311,6 @@ PopupMenu/font_sizes/font_size = 50
 PopupMenu/fonts/font = ExtResource("1_1ny7f")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_5kyot")
 PopupMenu/styles/panel = SubResource("StyleBoxFlat_qwl8h")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_jcacn")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_un12k")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_hgvtv")

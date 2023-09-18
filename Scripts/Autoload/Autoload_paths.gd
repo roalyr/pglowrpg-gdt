@@ -11,4 +11,5 @@ extends Node
 @onready var window_worldgen_button_preset : OptionButton = window_worldgen.get_node("Worldgen_button_bar/Button_preset")
 @onready var window_worldgen_text : Label = window_worldgen.get_node("Text_frame/Scroll_container/Text_output")
 @onready var window_worldgen_image : TextureRect = window_worldgen.get_node("Image_frame/Scroll_container/Image_output")
+@onready var world_grid : GridContainer = window_worldgen.get_node("World_frame/Scroll_container/World_grid")
 @onready var worldgen : Node = window_worldgen.get_node("Worldgen")
